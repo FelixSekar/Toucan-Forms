@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign-up | Toucan Forms </title>
+  <link rel="stylesheet" type="text/css" href="sign_up.css" media="screen">
+	<link href="https://fonts.googleapis.com/css?family=Just+Another+Hand" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Heebo:700" rel="stylesheet">
+	<style>
+
+
+nav{
+	background-color: #091413;
+	height: 60px;
+	width: 500px;
+	border-radius: 10;
+	border-color: black;
+	border-width: 3px;
+
+}
+nav ul li {
+  list-style-type: none;
+	display: inline;
+	width: 130px;
+}
+
+nav ul li a{
+	text-decoration: none;
+	line-height: 60px;
+	color: white;
+	font-family: 'Dosis', sans-serif;
+	padding: 10px;
+	font-size: 20px;
+}
+
+li a:hover{
+	color:yellow;
+}
+
+.nav_bar{
+  position: fixed;
+	top: 3px;
+	left: 1000px;
+}
+
+</style>
+	<script type = "text/javascript" 
+         src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type = "text/javascript" >
+         
+		 function check()
+		 {
+			 	  
+				   
+					
+					
+                   jQuery.ajax({
+                    url: "checkInit.php",
+                    data: 'email='+$("#email").val(),
+                    type: "POST",
+                     success:function(data){
+                     $("h4").html(data);
+                     
+                     },
+                     error:function (){}
+                     });
+                     }
+		 
+		 
+				   
+		 
+      </script> 
+</head>
+
+
+<body>
+
+<a href="intro.html" ><img id="logo" src="images/logo.png" > </a> 
+<h2>Sign-in.</h2>
+
+<div class="container">
+
+ <div class="header">
+<h3>Register yourself! </h3>
+
+
+ </div>
+<h4 style="background-color:powderblue; position:absolute; left: 100px; top: 70px; z-index: 9999; color:red"></h4>
+ <form action="signupCheck.php" method="post" required/>
+    
+ 	<input id="email" name="email" onBlur="check()" placeholder="email" type="email" required/> <br>
+	<input id="number" type="number" name="phone" placeholder="phone-number" required/> <br>
+ 	<input id="password" name="password" placeholder="Password" type="password" required/><br>
+	<input id="retype" type="password" placeholder="Re-enter password" name="retypepassword" required/><br>
+	<input id="submit" type="submit" name="submit" value="Sign Up"/>
+</form>
+</div>
+<div class="nav_bar">
+<nav>
+	<ul>
+<li><a href="http://localhost/project1/intro.php">Home</a></li>
+
+<li><a href="resetPass.php">Reset_Password</a></li>
+&emsp;
+
+	</ul>
+</nav>
+</div>
+
+</body>
+
+</html>
